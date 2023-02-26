@@ -1,0 +1,31 @@
+{% extends 'menu/base.html' %}
+{% load static %}
+{% block title %}
+  Anasayfa
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-12" style="padding: 0 !important;">
+    <h1 class="text-center mt-3">Menü</h1>
+    <div class="row">
+      {% for corba in corbalar %}
+        {% include 'menu/part/_corba.html' %}
+      {% endfor %}
+      {% for kebap in kebaplar %}
+        {% include 'menu/part/_kebap.html' %}
+      {% endfor %}
+      {% for pide in pideler %}
+        {% include 'menu/part/_pide.html' %}
+      {% endfor %}
+      {% for tatli in tatlilar %}
+        {% include 'menu/part/_tatli.html' %}
+      {% endfor %}
+      {% for icecek in icecekler %}
+        {% include 'menu/part/_icecek.html' %}
+      {% endfor %}
+    </div>
+  </div> 
+</div>
+
+{% endblock content %}

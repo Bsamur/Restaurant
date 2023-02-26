@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} | Restaurant</title>
+    <link rel="icon" href="{%  static 'menu/img/logo.png' %}">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'menu/css/style.css' %}">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="{% static 'menu/css/international-telephone-input.css' %}" />
+    <script src="{% static 'menu/js/international-telephone-input.js' %}"></script>
+    <style>
+        .flag {
+            height: 15px;
+            box-shadow: 0 0 1px 0 #888;
+            background-image: url("{% static 'menu/img/flags.png' %}");
+            background-repeat: no-repeat;
+            background-color: #dbdbdb;
+            background-position: 20px 0;
+        }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .flag {
+                background-image: url("{% static 'menu/img/flags@2x.png' %}");
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'menu/part/_navbar.html' %}
+    <div class="container-fluid">
+        {% block content %}{% endblock content %}
+    </div>
+            
+        
+    <!-- jQuery library --> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <!--Ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'menu/js/orders.js' %}"></script>
+    <script src="{% static 'menu/js/cart.js' %}"></script>
+    <script src="{% static 'menu/js/konum.js' %}"></script>
+    {% block js_files %}{% endblock js_files %}
+</body>
+</html>

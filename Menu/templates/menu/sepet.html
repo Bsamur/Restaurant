@@ -1,0 +1,100 @@
+{% extends 'menu/base.html' %}
+{% load static %}
+
+{% block title %}Sepet{% endblock title %}
+
+
+{% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <div class="container-fluid" style="margin: 50px;">
+      <button class = "btn btn-primary mx-4" onclick="getLocation()">Adres Sorgula</button>
+      <a href="#" class = "btn btn-outline-danger" id="demo">Adress Linki</a>
+      <form method="POST" class="mt-3">
+        {% csrf_token %}
+        <div class="form">
+          
+          <div class="form-group d-flex justify-content-between">
+                  <div class="w-50 p-2">
+                    <label for="usr">Şehir :</label>
+                    <input type="text" class="form-control" name="city" id="city">
+                  </div>
+                  <div class="w-50 p-2">
+                    <label for="name">Ad Soyad :</label>
+                    <input type="text" class="form-control" name="name" id="name">
+                  </div>
+          </div>
+          <div class="form-group d-flex justify-content-between">
+                  <div class="w-50 p-2">
+                    <label for="town">İlçe :</label>
+                    <input type="text" class="form-control"  name="town" id="town">
+                  </div>
+                  <div class="w-50 p-2">
+                    <label for="phone">Telefon no : </label>
+                    <div class="input-group mb-3">
+                      <div class="iti"style="width: 89%;">
+                        <input type="tel" class="form-control mx-5" id="telinput" name="phone">
+                      </div>
+                    </div>
+                    
+                  </div>
+          </div>
+        
+          <div class="form-group d-flex justify-content-between">
+                  <div class="w-50 p-2">
+                    <label for="usr">Mahalle:</label>
+                    <input type="text" class="form-control"  name="suburb" id="suburb">
+                  </div>
+                  <div class="w-50 p-2">
+                    <label for="productdetail">ürün detay bilgisi:</label>
+                    <textarea class="form-control" id="productdetail" name="productdetail" rows="1"></textarea>
+                  </div>
+          </div>
+          <div class="form-group d-flex justify-content-between">
+                  <div class="w-50 p-2">
+                    <label for="street">Cadde/Sokak:</label>
+                    <input type="text" class="form-control" name="street"  id="street">
+                  </div>
+                  <div class="w-50 p-2">
+                    <label for="usr">Ödeme Yöntemi:</label> <br>
+                    <select name="odemeturu" class="custom-select w-100">
+                      <option selected>Ödeme Yöntemi</option>
+                      <option value="nakit">Nakit</option>
+                      <option value="kkredi">Kredi Kartı</option>
+                    </select>
+                  </div>
+          </div>
+          <div class="form-group">
+                  <div class="w-50 p-2">
+                    <label for="homeno">Bina no:</label>
+                    <input type="text" class="form-control" name="homeno" id="homeno">
+                  </div>
+          </div>
+          <div class="form-group">
+                  <div class="w-50 p-2">
+                    <label for="homename">Villa Adı:</label>
+                    <input type="text" class="form-control" name="homename" id="homename">
+                  </div>
+          </div>
+          <div class="form-group">
+            <div class="w-50 p-2" id="productlist123">
+            </div>
+          </div>
+        </div>
+        
+        <button class="btn btn-primary" type="submit" id="reset">Bilgileri Onayla</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-4 bg-dark mt-5  overflow-auto" style="padding: 0 !important; height: 500px;">
+    <div class="d-flex flex-column justify-content-between" style="padding: 0 !important; height: 500px;">
+        <h1 class="text-center mt-3 text-white mb-5">Sepet</h1>
+        <ol class="mt-2 p-5" id="productcart12"></ol>
+        <h3 id="total" class="text-white text-right px-5 py-3">0 ₺</h3>
+    </div>
+  </div> 
+</div>
+{% endblock content %}
+
+    
+    

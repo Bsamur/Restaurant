@@ -1,0 +1,10 @@
+<div class="col-md-3  col-xs-6 pt-2 my-2">
+    <img class="image" src="{{tatli.image.url}}" alt="{{tatli.name}}">
+    <h4 class="text-center" id="product{{tatli.id}}">{{tatli.name}}</h4>
+    <h6 class="text-center" id="category{{tatli.id}}">{{tatli.category}}</h6>
+    <p class="text-center" id="productprice{{tatli.id}}">{{tatli.price}}</p>
+    
+    <div class="d-flex justify-content-center">
+        <button class=" btn btn-primary button" onclick="addProduct('{{tatli.id}}')" style="margin-top: 35px;">Sepete Ekle</button>
+    </div>
+</div>

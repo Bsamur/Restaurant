@@ -1,0 +1,114 @@
+{% extends "kasaadmin/base.html" %}
+{% load static %}
+{% block title %}
+    Ürün Listesi
+{% endblock title %}
+{% block content %}
+<div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+        {% include 'kasaadmin/part/_navbar2.html' %}
+        <div class="container-fluid">
+            <h3 class="text-dark mb-4">Ürünler</h3>
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">Ürünler Listesi</p>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                        <table class="table my-0" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Ürün Adı</th>
+                                    <th>Açıklama</th>
+                                    <th>Kategori</th>
+                                    <th>Fiyat</th>
+                                    <th>Şatışta mı?</th>
+                                    <th>Kampanya var mı?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for pro in product %}
+                                   
+                                    <tr>
+                                        {% if pro.image %}
+                                            <td><img class="rounded-circle me-2" width="30" height="30" src='{{ pro.image.url }}'>
+                                                <a href="upgradeproduct/{{ pro.slug }}">{{ pro.name }}</a>
+                                            </td>
+                                        {% endif %}
+                                        <td>{{pro.desc}}</td>
+                                        <td>{{pro.category}}</td>
+                                        <td>{{pro.price}} ₺</td>
+                                        <td>{% if pro.is_active == True %}Var{% else %}Yok{% endif %}</th>
+                                        <td>{% if pro.offer == True %}Var{% else %}Yok{% endif %}</th>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr></tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 align-self-center">
+                            <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 1 of&nbsp; 1</p>
+                        </div>
+                        <div class="col-md-6">
+                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                <ul class="pagination">
+                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <li class="nav-item"><a class="nav-link active" href="{% url 'productadd' %}"><i class="fas fa-table"></i><span>Ürün Ekleme</span></a></li>
+            <div id="bs4_sngl_cmrce" class="modal fade bs4_modal bs4_blue bs4_bg_white bs4_bd_black bs4_bd_semi_trnsp bs4_none_radius bs4_shadow_none bs4_center bs4_animate bs4FadeInDown bs4_duration_md bs4_easeOutQuint bs4_size_sngl_cmrce" role="dialog" data-modal-backdrop="true" data-show-on="click" data-modal-delay="false" data-modal-duration="false">
+                <div class="modal-dialog">
+                    <div class="modal-content"><a class="bs4_btn_x_out_shtr bs4_sngl_cmrce_close" href="#" data-bs-dismiss="modal">close</a>
+                        <div class="row">
+                            
+                            <div class="col-12 col-md-7" style="padding-bottom: 30px;">
+                                <div class="bs4_sngl_cmrce_txt">
+                                    <h1>name of product, company plus modal number</h1>
+                                    <ul>
+                                        <li><i class="fa fa-star rate-star"></i></li>
+                                        <li><i class="fa fa-star rate-star"></i></li>
+                                        <li><i class="fa fa-star rate-star"></i></li>
+                                        <li><i class="fa fa-star rate-star"></i></li>
+                                        <li><i class="fa fa-star-half-full rate-star"></i></li>
+                                    </ul>
+                                    <h2>130.00</h2>
+                                    <p class="text-start" style="padding-top: 15px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa.</p>
+                                    <form class="d-xl-flex" action="#" style="padding-top: 15px;">
+                                        <div class="bs4_form_num" style="padding-top: 15px;"><label class="form-label">quantity</label><input class="form-control" type="number" min="1" max="20"></div>
+                                        <div class="bs4_form_color" style="padding-top: 15px;"><label class="form-label">colours</label><select class="form-select form-select-sm">
+                                                <optgroup label="Pick a color">
+                                                    <option value="12" selected="">red</option>
+                                                    <option value="13">green</option>
+                                                    <option value="14">blue</option>
+                                                </optgroup>
+                                            </select></div>
+                                        <div class="bs4_form_size&quot;" style="margin-left: 15px;margin-top: 15px;"><label class="form-label">Pick your size</label><select class="form-select" name="size" style="max-width: 128px;">
+                                                <optgroup label="Select size">
+                                                    <option value="12" selected="">10</option>
+                                                    <option value="13">12</option>
+                                                    <option value="14">14</option>
+                                                </optgroup>
+                                            </select></div>
+                                    </form>
+                                </div>
+                                <div class="bs4_form_cmrce_btn" style="padding-left: 20px;"><button class="btn btn-primary d-flex justify-content-start bs4_btn_x_out_shtr" type="submit">ADD TO CART</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

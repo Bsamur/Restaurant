@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
+*{
+    box-sizing: border-box !important;
+    padding: 0;
+    margin: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    font-family: Helvetica, Sans-Serif;
+    
+}
+h1{
+    font-family: 'Kanit', sans-serif;
+    opacity: 0.89;
+}
+#deleteBtn{
+    position: absolute;
+    right: 170px;
+    width: 24px;
+    height: 24px;
+    background-color: #FF3400;
+    color: white;
+    font-size: 15px;
+}
+.btn-primary {
+    background-color: #FF3400;
+    border-color: #FF3400;
+    box-shadow: none;
+}
+.btn-primary:hover {
+    background-color: #e87558;
+    border-color: #e87558;
+    box-shadow: none;
+}
+.btn-primary:focus{
+    background-color: #FF3400;
+    border-color: #FF3400;
+    box-shadow: none;
+}
+#map {
+    height: 100%;
+}
+#sepetgitbtn{
+    display: none;
+}
+@media screen and (max-width: 600px) {
+
+
+#sepetgitbtn{
+    background-color: transparent;
+    text-align: center;
+    position: sticky;
+    bottom: 100px;
+    left: 82%;
+    width: 50px;
+    height: 50px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sepetgitbtn img{
+    width: 32px;
+}
+.total{
+    position: relative;
+    bottom: 40px;
+    left: 40px;
+    margin-top: 10px;
+}
+}
+.orders{
+    
+    margin-top: 70px;
+    height: 500px;
+}
+
+.cartbtn{
+    position: relative;
+    bottom: 40px;
+    left: 40px;
+}
+.total{
+    position: relative;
+    bottom: 40px;
+    right: 40px;
+    
+}
+.image{
+    width: 300px !important;
+    height: 225px;
+    border-radius: 50%;
+}
+.button{
+   padding: 5px;
+   margin-top: 10px;
+}
+
+
+.del{
+    position: absolute;
+    
+    right: 80px;
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 22px;
+    padding-bottom: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-100%);
+}
+#scart{
+    padding: 50px;
+}
+.orderlist{
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
